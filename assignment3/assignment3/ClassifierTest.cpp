@@ -125,7 +125,8 @@ void checkPoints(double xB, double yB, double xC, double yC, double xD, double y
         if(slope.slopeAB + slope.slopeBC + slope.slopeCD + slope.slopeDA != 0) errorlog.push_back("Points cannot be colinear");
     }
     
-    //if(xC >= xB && yC <= yB)
+    if(xC > xB && yC < yB) errorlog.push_back("Lines cannot cross");
+    if(xD > xC && yD < yC) errorlog.push_back("Lines cannot cross");
 }
 
 vector<string> getErrorLog() {

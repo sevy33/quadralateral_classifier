@@ -73,6 +73,20 @@ int main(int argc, const char * argv[]) {
     dist = distsStruct(xB, yB, xC, yC, xD, yD);
     printShape(slope, dist);
     
+    // Point C line cross
+    xB = 4; yB = 4; xC = 6; yC = 2; xD = 2; yD = 4;
+    checkPoints(xB, yB, xC, yC, xD, yD);
+    slope = slopeStruct(xB, yB, xC, yC, xD, yD);
+    dist = distsStruct(xB, yB, xC, yC, xD, yD);
+    printShape(slope, dist);
+    
+    // Point D line cross
+    xB = 0; yB = 6; xC = 6; yC = 6; xD = 8; yD = 4;
+    checkPoints(xB, yB, xC, yC, xD, yD);
+    slope = slopeStruct(xB, yB, xC, yC, xD, yD);
+    dist = distsStruct(xB, yB, xC, yC, xD, yD);
+    printShape(slope, dist);
+    
     
     vector<string> logs = getErrorLog();
     for(int i=0;i < logs.size();i++) {
