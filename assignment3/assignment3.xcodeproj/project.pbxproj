@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		960F3CD921EFA39200982B11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 960F3CD821EFA39200982B11 /* main.cpp */; };
 		961C686121FD58EF0042B1CA /* ClassifierTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 961C685F21FD58EF0042B1CA /* ClassifierTest.cpp */; };
-		961C686321FD5F9B0042B1CA /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 961C686221FD5F9B0042B1CA /* Makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +30,6 @@
 		961C685E21FC1E780042B1CA /* test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		961C685F21FD58EF0042B1CA /* ClassifierTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassifierTest.cpp; sourceTree = "<group>"; };
 		961C686021FD58EF0042B1CA /* ClassifierTest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassifierTest.hpp; sourceTree = "<group>"; };
-		961C686221FD5F9B0042B1CA /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		961C686421FD8FDB0042B1CA /* configure */ = {isa = PBXFileReference; lastKnownFileType = text; path = configure; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +74,6 @@
 				961C685E21FC1E780042B1CA /* test.txt */,
 				961C685F21FD58EF0042B1CA /* ClassifierTest.cpp */,
 				961C686021FD58EF0042B1CA /* ClassifierTest.hpp */,
-				961C686221FD5F9B0042B1CA /* Makefile */,
-				961C686421FD8FDB0042B1CA /* configure */,
 			);
 			path = assignment3;
 			sourceTree = "<group>";
@@ -170,7 +165,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961C686321FD5F9B0042B1CA /* Makefile in Sources */,
 				961C686121FD58EF0042B1CA /* ClassifierTest.cpp in Sources */,
 				960F3CD921EFA39200982B11 /* main.cpp in Sources */,
 			);

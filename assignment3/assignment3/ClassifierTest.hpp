@@ -14,6 +14,7 @@
 #include <vector>
 #include <math.h>
 #include <iomanip>
+#include <string>
 #define PI 3.14159265
 using namespace std;
 
@@ -38,5 +39,7 @@ bool isTrapezoid(slopes &slope);
 bool isSquareOrRhom(dists &dist);
 bool isSquare(dists &dist);
 void printShape(slopes &slope, dists &dist);
+void checkPoints(double xB, double yB, double xC, double yC, double xD, double yD);
+vector<string> getErrorLog();
 
 #endif /* ClassifierTest_hpp */
