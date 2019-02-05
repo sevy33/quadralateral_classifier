@@ -11,10 +11,33 @@
 #include <vector>
 #include <math.h>
 #include <iomanip>
+#include <stdlib.h>
+#include <time.h>
+#include <exception>
 #define PI 3.14159265
 using namespace std;
 
 double xB, yB, xC, yC, xD, yD;
+
+/*
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+    srand(time(NULL));
+    
+    DAta[0] = rand()%101;
+    yB = rand()%101;
+    xC = rand()%101;
+    yC = rand()%101;
+    xD = rand()%101;
+    yD = rand()%101;
+    
+    checkPoints(xB, yB, xC, yC, xD, yD);
+    struct slopes slope = slopeStruct(xB, yB, xC, yC, xD, yD);
+    struct dists dist = distsStruct(xB, yB, xC, yC, xD, yD);
+    printShape(slope, dist);
+    
+    return 0;  // Non-zero return values are reserved for future use.
+}
+ */
 
 int main(int argc, const char * argv[]) {
     // Square
@@ -92,28 +115,41 @@ int main(int argc, const char * argv[]) {
     for(int i=0;i < logs.size();i++) {
         cout << i+1 << ": " << logs[i] << endl;
     }
+
     /*
-    xB = 0; yB = 0; xC = 0; yC = 0; xD = 0; yD = 0;
-    cout << "Enter Cordinates Counterclockwise followed by a space(first coordinates are 0,0)\n";
-    cout << "xB yB: ";
-    cin >> xB >> yB;
-    if(cin.fail()) {
-        cout << "Invalid Input";
-        exit(0);
+    vector<string> logs;
+    vector<string> shapes;
+    for(int i=0;i < 1000;i++) {
+        xB = rand()%101;
+        yB = rand()%101;
+        xC = rand()%101;
+        yC = rand()%101;
+        xD = rand()%101;
+        yD = rand()%101;
+        
+        checkPoints(xB, yB, xC, yC, xD, yD);
+        struct slopes slope = slopeStruct(xB, yB, xC, yC, xD, yD);
+        struct dists dist = distsStruct(xB, yB, xC, yC, xD, yD);
+        logs = getErrorLog();
+        if(logs.size() == 0) {
+            string shape = printShape(slope, dist);
+            string str = "xA,yA = 0,0 xB,yB = " + to_string(xB) + "," + to_string(yB) + " xC,yC = " + to_string(xC) + "," + to_string(yC) + " xD,y d= " + to_string(xD) + "," + to_string(yD) + "\n";
+            shapes.push_back(str + shape + " OK");
+        }
+        else {
+            string str = "xA,yA = 0,0 xB,yB = " + to_string(xB) + "," + to_string(yB) + " xC,yC = " + to_string(xC) + "," + to_string(yC) + " xD,y d= " + to_string(xD) + "," + to_string(yD) + "\n";
+            shapes.push_back(str + "ERROR");
+        }
     }
-    cout << "xC yC: ";
-    cin >> xC >> yC;
-    if(cin.fail()) {
-        cout << "Invalid Input";
-        exit(0);
-    }
-    cout << "xD yD: ";
-    cin >> xD >> yD;
-    if(cin.fail()) {
-        cout << "Invalid Input";
-        exit(0);
+     
+     
+    
+    for(int i=0;i < shapes.size();i++) {
+        cout << shapes[i] << endl;
     }
     */
+ 
     
     return 0;
 }
+

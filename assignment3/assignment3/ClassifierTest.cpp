@@ -76,17 +76,17 @@ bool isSquare(slopes &slope) {
     return false;
 }
 
-void printShape(slopes &slope, dists &dist) {
+string printShape(slopes &slope, dists &dist) {
     if(isParallelograms(slope)) {
         if(isSquareOrRhom(dist)) {
-            if(isSquare(slope)) cout << "Square" << endl;
-            else cout << "Rhombus" << endl;
+            if(isSquare(slope)) return "Square";
+            else return "Rhombus";
         } else {
-            cout << "Rectangle" << endl;
+            return "Rectangle";
         }
     } else {
-        if(isTrapezoid(slope)) cout << "Trapezoid" << endl;
-        else cout << "Kite" << endl;
+        if(isTrapezoid(slope)) return "Trapezoid";
+        else return "Kite";
     }
 }
 
