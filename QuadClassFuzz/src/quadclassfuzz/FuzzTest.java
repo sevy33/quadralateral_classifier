@@ -114,9 +114,9 @@ public class FuzzTest {
 	    dist = new Dists(xB, yB, xC, yC, xD, yD);
 	    shapeTest.add(fuzz.printShape(slope, dist));
 	    
-	    for(String s : shapeTest) {
-	    	System.out.println(s);
-	    }
+	    //for(String s : shapeTest) {
+	    	//System.out.println(s);
+	    //}
 		
 		
 		if(fuzz.getFuzzerSize() > 0) System.out.println("Error");
