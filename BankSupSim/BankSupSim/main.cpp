@@ -22,6 +22,31 @@ static int numTellers = 6;
 static int simulationDuration = 720; // minutes
 static RandDouble randomizer;
 
+void runSimulation(queue<Customer> line, vector<Teller> teller, double maxServTime, double seed) {
+    double totalWait = 0;
+    int numCustomer = 0;
+    for (double time = 1; time <= simulationDuration; time++) {
+        Customer newCustomer(time, randomizer.fRand(.1, maxServTime, seed));
+        line.push(newCustomer);
+        for (int i = 0; i < numTellers; i++) {
+            time++;
+            if (teller[i].isFree() & !line.empty()) {
+                double frontRand = randomizer.fRand(.1, maxServTime, seed);
+                Customer frontCustomer = line.front();
+                numCustomer++;
+                totalWait += (time - frontCustomer.getArrival());
+                teller[i].addCustomer(frontCustomer);
+                teller[i].addTime(frontRand);
+                line.pop();
+            }
+        }
+    }
+
+    // Print simulation results
+    cout << "Average wait time per customer: " << totalWait / numCustomer << endl;
+    cout << "Total number of customers: " << numCustomer << endl;
+}
+
 int main(int argc, const char * argv[]) {
 
    // Reading user input 
@@ -45,30 +70,7 @@ int main(int argc, const char * argv[]) {
     queue<Customer> line;
 
     // Running simulation
-    double totalWait = 0;
-    int numCustomer = 0;
-    double totalServeTime = 0;
-    for (double time = 1; time <= simulationDuration; time++) {
-        Customer newCustomer(time, randomizer.fRand(.1, maxServTime, seed));
-        line.push(newCustomer);
-        for (int i = 0; i < numTellers; i++) {
-            time++;
-            if (teller[i].isFree() & !line.empty()) {
-                double frontRand = randomizer.fRand(.1, maxServTime, seed);
-                Customer frontCustomer = line.front();
-                numCustomer++;
-                totalWait += (time - frontCustomer.getArrival());
-                teller[i].addCustomer(frontCustomer);
-                teller[i].addTime(frontRand);
-                line.pop();
-            }
-        }
-    }
-    for (int i = 0; i < teller.size(); i++) {
-        totalServeTime += teller[i].getTime();
-    }
-    cout << "average:" << totalWait / numCustomer << endl;
-    cout << "total Cust:" << numCustomer << endl;
+    runSimulation(line, teller, maxServTime, seed);
 
     return 0;
 
