@@ -17,13 +17,13 @@
 
 class RandDouble {
 private:
-    
+
 public:
-    double fRand(double fMin, double fMax, unsigned int seed) {
-        srand(seed);
-        double f = (double) rand() / RAND_MAX;
-        return fMin + f * (fMax - fMin);
-    }
+	double fRand(double fMin, double fMax, unsigned int seed) {
+		srand(seed);
+		double f = (double) rand() / RAND_MAX;
+		return fMin + f * (fMax - fMin);
+	}
 };
 
 
