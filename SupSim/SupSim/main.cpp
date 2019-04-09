@@ -105,49 +105,6 @@ int main(int argc, const char * argv[]) {
     // Running simulation
     stat s = {0.0, 0.0, 0.0};
     runSimulation(numMinutes, q, l, maxServTime, seed, avgArrivalRt, s);
-    
-//    double time = 0;
-//    while (time <= numMinutes) {
-//        isList = (!l.empty());
-//        isQueue = (!q.empty());
-//        time = event.checkEvent(numMinutes, isList, isQueue);
-//
-//        if (event.getNextArr() == time) {
-//            Customer c(event, time, randomizer.fRand(.1, maxServTime, seed));
-//            l.push_back(c);
-//            event.setNextArr(event.getNextArr(), avgArrivalRt);
-//            list = min_element(l.begin(), l.end(), compare);
-//            if ((*list).getPickTime() < event.getNextCheckout()) event.setNextCheckout((*list).getPickTime());
-//        }
-//
-//        if (event.getNextCheckout() == time) {
-//            list = min_element(l.begin(), l.end(), compare);
-//            if (q.empty()) event.setNextDept(event.getNextCheckout(), rand() % 6 + 1);
-//            q.push(*list);
-//            l.erase(list);
-//
-//            if (!l.empty()) {
-//                list = min_element(l.begin(), l.end(), compare);
-//                event.setNextCheckout((*list).getPickTime());
-//            } else {
-//                event.setNextCheckout(numMinutes + 1);
-//            }
-//        }
-//
-//        if (event.getNextDept() == time) {
-//            Customer temp = q.front();
-//            q.pop();
-//            s.numDept++;
-//            s.totWait += temp.getWaitTime();
-//            s.totServ += (event.getNextDept() - (temp.getPickTime() + temp.getWaitTime()));
-//            if (!q.empty()) {
-//                q.front().setWaitTime(event.getNextDept() - q.front().getPickTime());
-//                event.setNextDept(event.getNextDept(), numTellers);
-//            } else {
-//                event.setNextDept(numMinutes, 1);
-//            }
-//        }
-//    }
 
     // Print simulation results
     cout << "Average wait time per customer: " << s.totWait / s.numDept << endl;
