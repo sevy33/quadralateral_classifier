@@ -6,37 +6,51 @@
 //  Copyright © 2019 Devin Sevy. All rights reserved.
 //
 
-#include "Teller.hpp"
 #include "Customer.hpp"
 #include "RandDouble.hpp"
+#include "Teller.hpp"
 #include <iostream>
-# include <list>
-# include <vector>
-# include <stack>
-# include <string>
-# include <queue>
+#include <list>
+#include <queue>
+#include <stack>
+#include <string>
+#include <vector>
 
 using namespace std;
 
-RandDouble randomizer;
+static int numTellers = 6;
+static int simulationDuration = 720; // minutes
+static RandDouble randomizer;
 
 int main(int argc, const char * argv[]) {
+
+   // Reading user input 
     double avgArrivalRt = atof(argv[1]);
     double maxServTime = atof(argv[2]);
     unsigned int seed = atoi(argv[3]);
-    int numTellers = 6;
-    int numMinutes = 720;
+
+    // Simple input validation
+    if (avgArrivalRt <= 0) {
+        cout << "Average arrival rate must be greater than 0.\n";
+    }
+    if (maxServTime <= 0) {
+        cout << "Max service time must be greater than 0.\n";
+    }
+    if (seed <= 0) {
+        cout << "Random seed must be greater than 0.\n";
+    }
+
+    // Creating data structures
+    vector<Teller> teller(numTellers);
+    queue<Customer> line;
+
+    // Running simulation
     double totalWait = 0;
     int numCustomer = 0;
     double totalServeTime = 0;
-    vector<Teller> teller(numTellers);
-    queue<Customer> line;
-    
-    
-    for(double time = 1;time <= numMinutes;time++) {
+    for (double time = 1; time <= simulationDuration; time++) {
         Customer newCustomer(time, randomizer.fRand(.1, maxServTime, seed));
         line.push(newCustomer);
-
         for (int i = 0; i < numTellers; i++) {
             time++;
             if (teller[i].isFree() & !line.empty()) {
@@ -50,13 +64,12 @@ int main(int argc, const char * argv[]) {
             }
         }
     }
-    for(int i=0;i < teller.size();i++) {
+    for (int i = 0; i < teller.size(); i++) {
         totalServeTime += teller[i].getTime();
     }
-    cout << "average:" << totalWait/numCustomer << endl;
+    cout << "average:" << totalWait / numCustomer << endl;
     cout << "total Cust:" << numCustomer << endl;
-    
+
     return 0;
-    
-    
+
 }

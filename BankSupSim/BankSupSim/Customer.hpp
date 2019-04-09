@@ -12,10 +12,14 @@
 #include <stdio.h>
 
 class Customer {
+
 private:
+
     double arrivalTime;
     double processTime;
+
 public:
+
     Customer() {
         arrivalTime = 0;
         processTime = 0;
@@ -24,13 +28,14 @@ public:
         arrivalTime = at;
         processTime = (2 + rand);
     }
-    
+
     bool done() {
         return --processTime < 0;
     }
     double getArrival() {
         return arrivalTime;
     }
+
 };
 
 #endif /* Customer_hpp */
