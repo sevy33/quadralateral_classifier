@@ -28,6 +28,8 @@
 		960608B02253019400DD73ED /* RandDouble.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RandDouble.hpp; sourceTree = "<group>"; };
 		960608B32253122100DD73ED /* Teller.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Teller.hpp; sourceTree = "<group>"; };
 		960608B62253127200DD73ED /* Customer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Customer.hpp; sourceTree = "<group>"; };
+		96239695225C461D00C10821 /* CustomerS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerS.h; sourceTree = "<group>"; };
+		96239696225C463F00C10821 /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,8 @@
 				960608B02253019400DD73ED /* RandDouble.hpp */,
 				960608B32253122100DD73ED /* Teller.hpp */,
 				960608B62253127200DD73ED /* Customer.hpp */,
+				96239695225C461D00C10821 /* CustomerS.h */,
+				96239696225C463F00C10821 /* Event.h */,
 			);
 			path = BankSupSim;
 			sourceTree = "<group>";
