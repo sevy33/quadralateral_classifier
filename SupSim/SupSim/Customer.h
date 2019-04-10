@@ -9,47 +9,53 @@
 #ifndef Customer_h
 #define Customer_h
 
-# include "Event.h"
-
-# include <list>
-# include <vector>
-# include <stack>
+#include "Event.h"
+#include <list>
+#include <stack>
+#include <vector>
 
 using namespace std;
 
 class Customer {
+
 private:
+
     double arrTime;
     double pickTime;
     double waitTime;
+
 public:
-    Customer() {}
+
+    Customer() {
+        
+    }
+
     Customer(Event& event, double time, double r) {
         arrTime = event.getNextArr();
         pickTime = (time + r);
         waitTime = 0;
     }
-    
+
     double getPickTime() {
         return pickTime;
     }
-    
+
     double getArrTime() {
         return waitTime;
     }
-    
+
     double getWaitTime() {
         return arrTime;
     }
-    
+
     void setWaitTime(double nextTime) {
         waitTime = nextTime;
     }
-    
+
     bool sameInstance(Customer* c) {
         return this == c;
     }
-    
+
 };
 
 #endif /* Customer_h */
